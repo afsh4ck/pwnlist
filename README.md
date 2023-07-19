@@ -1,6 +1,6 @@
 # pwnlist - Custom Dictionaries for Hacking 🚀🔐
 
-![Uploading pwnlist.jpg…]()
+![pwnlist](https://github.com/afsh4ck/pwnlist/assets/132138425/1073f02e-86b6-4199-8b59-9d70a1918533)
 
 ## Descripción
 pwnlist es una potente herramienta de automatización desarrollada en Python que simplifica la creación de diccionarios personalizados para pruebas de seguridad y análisis de vulnerabilidades. Esta aplicación está diseñada para ayudar a los profesionales de la ciberseguridad a generar listas de nombres personalizados mediante combinaciones de mayúsculas, minúsculas, números y caracteres especiales, potenciando las técnicas de fuerza bruta en entornos controlados.
