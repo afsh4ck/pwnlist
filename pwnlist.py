@@ -34,15 +34,16 @@ def get_combinations(word, use_numbers, use_special_chars):
     combinations = []
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     special_chars = ['!', '@', '#', '$', '%', '&', '*', '?']
-    max_number_count = 5  # Máximo número de veces que aparecen números en la palabra
-    for i in range(1, len(word)):
+    max_special_chars_count = 5  # Máximo número de caracteres especiales en la palabra
+
+    for i in range(1, min(len(word) + 1, max_special_chars_count + 1)):
         for subset in itertools.combinations(range(len(word)), i):
             replacements = []
             if use_numbers:
                 # Limitar el número de veces que aparecen números en la palabra
-                replacements.extend(numbers * min(max_number_count, i))
+                replacements.extend(numbers * min(max_special_chars_count - i + 1, i))
             if use_special_chars:
-                replacements.extend(special_chars)
+                replacements.extend(special_chars * min(max_special_chars_count - i + 1, i))
             for replacement in itertools.product(replacements, repeat=i):
                 temp = list(word)
                 for index, item in zip(subset, replacement):
@@ -130,6 +131,20 @@ while True:
         cabecera()
 
     except KeyboardInterrupt:
-        print(ROJO + "[!] Se ha interrumpido el programa. Reiniciando..." + RESET)
+        while True:
+            try:
+                # Pregunta al usuario si desea salir del programa
+                exit_choice = input(ROJO + "\n[!] ¿Deseas salir del programa? (s/n): " + RESET).lower()
+                if exit_choice == "s":
+                    print(VERDE + "[+] Happy hacking ;)" + RESET)
+                    exit(0)  # Sale del programa con un código de éxito
+                elif exit_choice == "n":
+                    break  # Vuelve al bucle anterior para continuar con la creación del diccionario
+                else:
+                    print(ROJO + "[!] Opción inválida. Por favor, selecciona 's' para salir o 'n' para continuar." + RESET)
+            except KeyboardInterrupt:
+                continue  # Maneja el segundo KeyboardInterrupt en caso de que el usuario pulse Control+C de nuevo durante la pregunta de salida
+
+        # Reinicia la creación del diccionario
         os.system('cls' if os.name == 'nt' else 'clear')
         cabecera()
