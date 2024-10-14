@@ -1,4 +1,4 @@
-# pwnlist - Diccionarios custom para Hacking 🚀🔐
+# Pwnlist - Diccionarios custom para Hacking 🚀🔐
 
 ![pwnlist](https://github.com/afsh4ck/pwnlist/assets/132138425/129a54ab-ba9d-4992-a826-75447e7a69e6)
 
